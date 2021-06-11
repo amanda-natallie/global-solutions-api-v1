@@ -17,8 +17,15 @@ Este projeto contem a API de Carros e Lava-Rápidos em Laravel. os Models estão
    ```php artisan migrate```
    (Isto irá criar as tabelas no banco de dados)
 4. Instale e execute o Insomnia. 
-5. Navegue até a pasta ```doc > Insomnia_2021-06-11.json ``` e importe o arquivo JSON dentro do Insomnia clicando em ![JSON no Insomnia](http://i.prntscr.com/q7JVy44NReaeDvtFBXBIaQ.png "Como importar JSON no Insomnia")
-6. E depois aqui: 
+5. Navegue até a pasta ```doc > Insomnia_2021-06-11.json ``` e importe o arquivo JSON dentro do Insomnia clicando aqui: 
+
+![JSON no Insomnia](http://i.prntscr.com/q7JVy44NReaeDvtFBXBIaQ.png "Como importar JSON no Insomnia")
+
+7. E depois aqui:
+
 ![JSON no Insomnia](http://i.prntscr.com/MWiNgvGpTA2-MRL-GmNgEg.png "Como importar JSON no Insomnia")
-7. Com isto você será capaz de testar as rotas contidas neste back end
+
+
+8. Com isto você será capaz de testar as rotas contidas neste back end.
+9. Para ver esta API em ação, acesse a pasta frontend e siga o passo a passo.
    
