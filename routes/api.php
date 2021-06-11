@@ -17,27 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::namespace('API')->name('api.')->group(function(){
-    /* Route::prefix('/users')->group(function(){
-        Route::post('/','UsuarioController@login')->name('login');
-        Route::post('/create','UserController@create')->name('create');
-        Route::post('/token','UsuarioController@gerarToken')->name('gerarToken');
-    }); */
-    Route::prefix('/car-washers')->group(function(){
-        Route::get('/getAll','CarWashController@getAll')->name('getAll');
+    Route::prefix('/carwash')->group(function(){
+        Route::get('/getAll',[\App\Http\Controllers\Api\CarwashController::class,"findAll"])->name("findAll");
+        Route::post('/create',[\App\Http\Controllers\Api\CarwashController::class,"create"])->name("create");
+        Route::post('/update',[\App\Http\Controllers\Api\CarwashController::class,"update"])->name("update");
+        Route::post('/upload',[\App\Http\Controllers\Api\CarwashController::class,"upload"])->name("upload");
+        Route::post('/remove',[\App\Http\Controllers\Api\CarwashController::class,"remove"])->name("remove");
     });
-    /* Route::prefix('/conteudo')->group(function(){
-        Route::post('/find','ConteudoController@find')->name('find');
-        Route::post('/create','ConteudoController@create')->name('create');
-        Route::post('/update','ConteudoController@update')->name('update');
-        Route::post('/remove','ConteudoController@remove')->name('remove');
+    Route::prefix('/car')->group(function(){
+        Route::get('/getAll',[\App\Http\Controllers\Api\CarController::class,"findAll"])->name("findAll");
+        Route::post('/create',[\App\Http\Controllers\Api\CarController::class,"create"])->name("create");
+        Route::post('/update',[\App\Http\Controllers\Api\CarController::class,"update"])->name("update");
+        Route::post('/upload',[\App\Http\Controllers\Api\CarController::class,"upload"])->name("upload");
+        Route::post('/remove',[\App\Http\Controllers\Api\CarController::class,"remove"])->name("remove");
     });
-    Route::prefix('/image')->group(function(){
-        Route::post('/find','ImageController@find')->name('find');
-        Route::post('/create','ImageController@create')->name('create');
-        Route::post('/update','ImageController@update')->name('update');
-        Route::post('/upload','ImageController@upload')->name('upload');
-        Route::post('/remove','ImageController@remove')->name('remove');
-    }); */
 });
