@@ -25,6 +25,7 @@ class CarController extends Controller
             "records" =>  $conteudo
         ]);
     }
+    
 
     /**
      * Insere um novo carwash.
@@ -166,6 +167,22 @@ class CarController extends Controller
                 'exception' => $e
             ));
         }
+    }
+
+    /**
+     * Busca todos carwash cadastrados.
+     *
+     * @return JsonResponse
+     */
+    public function findByid(Request $request)
+    {
+        $dados = $request->all();
+        $conteudo = DB::table('car')->where("id", "=", $dados['id'])->get();
+
+        return response()->json([
+            "success" => true,
+            "records" =>  $conteudo
+        ]);
     }
 
 }

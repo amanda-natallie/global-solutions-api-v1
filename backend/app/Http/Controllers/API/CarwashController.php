@@ -76,7 +76,7 @@ class CarwashController extends Controller
      */
     public function update(Request $request)
     {
-        try{
+        try {
             $dados = $request->all();
             $dados['updated_at'] = date("Y-m-d H:i:s");
 
@@ -93,7 +93,6 @@ class CarwashController extends Controller
                     'message' => 'Não foi possível atualizar o car wash!'
                 ));
             }
-
         } catch (Exception $e) {
             return response()->json(array(
                 'success' => false,
@@ -101,7 +100,6 @@ class CarwashController extends Controller
                 'exception' => $e
             ));
         }
-
     }
 
     /**
@@ -129,7 +127,6 @@ class CarwashController extends Controller
         return response()->json(array(
             'success' => false
         ));
-
     }
 
     /**
@@ -157,7 +154,6 @@ class CarwashController extends Controller
                     'message' => 'Não foi possível remover o car wash!'
                 ));
             }
-
         } catch (Exception $e) {
             return response()->json(array(
                 'success' => false,
@@ -167,4 +163,19 @@ class CarwashController extends Controller
         }
     }
 
+    /**
+     * Busca todos carwash cadastrados.
+     *
+     * @return JsonResponse
+     */
+    public function findByid(Request $request)
+    {
+        $dados = $request->all();
+        $conteudo = DB::table('car_washes')->where("id", "=", $dados['id'])->get();
+
+        return response()->json([
+            "success" => true,
+            "records" =>  $conteudo
+        ]);
+    }
 }
