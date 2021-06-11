@@ -164,7 +164,7 @@ class CarwashController extends Controller
     }
 
     /**
-     * Busca todos carwash cadastrados.
+     * Busca carwash por id cadastrados.
      *
      * @return JsonResponse
      */

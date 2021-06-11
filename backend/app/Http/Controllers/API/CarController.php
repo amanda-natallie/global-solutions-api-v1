@@ -12,7 +12,7 @@ class CarController extends Controller
 {
     
     /**
-     * Busca todos carwash cadastrados.
+     * Busca todos carro cadastrados.
      *
      * @return JsonResponse
      */
@@ -28,7 +28,7 @@ class CarController extends Controller
     
 
     /**
-     * Insere um novo carwash.
+     * Insere um novo carro.
      *
      * @param Request $request
      * @return JsonResponse
@@ -49,9 +49,9 @@ class CarController extends Controller
                 'updated_at' => date("Y-m-d H:i:s")
             );
 
-            $carwash = DB::table('car')->insert($conteudo);
+            $carro = DB::table('car')->insert($conteudo);
 
-            if (!empty($carwash)) {
+            if (!empty($carro)) {
                 return response()->json(array(
                     'success' => true,
                     'message' => 'Carro inserido com sucesso!',
@@ -72,7 +72,7 @@ class CarController extends Controller
     }
 
     /**
-     * Atualiza o registro de um car wash.
+     * Atualiza o registro de um carro.
      *
      * @param Request $request
      * @return JsonResponse
@@ -170,7 +170,7 @@ class CarController extends Controller
     }
 
     /**
-     * Busca todos carwash cadastrados.
+     * Busca todos carro cadastrados.
      *
      * @return JsonResponse
      */
