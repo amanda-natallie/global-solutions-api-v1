@@ -10,7 +10,8 @@ import { Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flexGrow: 1,
+      padding: 0,
+      margin: 0
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -26,7 +27,7 @@ const LayoutContainer: React.FC = ({ children }) => {
   const history = useHistory();
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" >
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Garage Car Companion - Consuming API

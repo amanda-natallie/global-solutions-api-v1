@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -8,18 +8,16 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Grid,
-  Divider,
-  Typography,
 } from "@material-ui/core";
 
 import LayoutContainer from "../../components/LayoutContainer";
-import { Button, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { useHistory } from "react-router-dom";
 import { ICarProps } from "../../types";
 import api from "../../api";
+import PageHeader from "../../components/PageHeader";
 
 const useStyles = makeStyles({
   table: {
@@ -35,6 +33,17 @@ const Car = () => {
   const history = useHistory();
   const [cars, setCars] = useState<ICarProps[]>([]);
 
+  const handleDelete = (id: number | undefined) => {
+    try {
+      const confirm = window.confirm("Deseja remover este carro?");
+      confirm &&
+      api.post("/car/remove", { id: id }).then(() => {
+        getAllCars();
+      });
+    } catch (error) {
+      console.log("Ocorreu um erro", error);
+    }
+  };
   const getAllCars = () => {
     try {
       api.get("/car/getAll").then((data: any) => {
@@ -51,17 +60,12 @@ const Car = () => {
 
   return (
     <LayoutContainer>
-      <Grid container alignItems="center" justify="space-between">
-        <Typography variant="h5">Gerenciamento de Carros</Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => history.push("/add-car")}
-        >
-          Cadastrar novo
-        </Button>
-      </Grid>
-      <Divider style={{ marginTop: 30 }} />
+      <PageHeader 
+        title="Gerenciamento de Carros"
+        button="Cadastrar Novo"
+        action={() => history.push("/add-car")}
+      /> 
+      
       <TableContainer component={Paper} style={{ marginTop: 30 }}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -93,10 +97,13 @@ const Car = () => {
                 <TableCell>{row.kmRodado}</TableCell>
                 <TableCell>{row.dono}</TableCell>
                 <TableCell>
-                  <IconButton aria-label="delete" disabled color="primary">
+                  <IconButton aria-label="edit" color="primary" 
+                    onClick={() => history.push(`/update-car/${row.id}`)}>
                     <EditIcon />
                   </IconButton>
-                  <IconButton color="secondary" aria-label="add an alarm">
+                  <IconButton color="secondary" aria-label="delete"
+                    onClick={() => handleDelete(row.id)}
+                  >
                     <DeleteIcon />
                   </IconButton>
                 </TableCell>

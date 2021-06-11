@@ -1,13 +1,13 @@
 export interface ICarProps {
-    id: number;
-    foto: string;
-    modelo: string;
-    ano: string;
-    kmRodado: string;
-    placa: string;
-    dono: string;
-    created_at: string;
-    updated_at: string;
+    id?: number;
+    foto?: string;
+    modelo?: string;
+    ano?: string;
+    kmRodado?: string;
+    placa?: string;
+    dono?: string;
+    created_at?: string;
+    updated_at?: string;
 }
 
 export interface ICarWashProps {
