@@ -29,7 +29,7 @@ const LayoutContainer: React.FC = ({ children }) => {
     <div className={classes.root}>
       <AppBar position="static" >
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.title} onClick={() => history.push("/")}>
             Garage Car Companion - Consuming API
           </Typography>
           <Button color="inherit" onClick={() => history.push("/car")}>

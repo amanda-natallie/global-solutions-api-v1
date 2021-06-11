@@ -11,13 +11,13 @@ export interface ICarProps {
 }
 
 export interface ICarWashProps {
-    id: number;
-    name: string;
-    email: string;
-    phone: string;
-    address: string;
-    photos: string;
-    created_at: string;
-    updated_at: string;
+    id?: number;
+    name?: string;
+    email?: string;
+    phone?: string;
+    address?: string;
+    photos?: string;
+    created_at?: string;
+    updated_at?: string;
     
 }

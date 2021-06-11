@@ -1,5 +1,5 @@
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Car from "./pages/Car";
 import AddCar from "./pages/Car/AddCar";
@@ -13,7 +13,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#212121",
-    },
+    }, 
     secondary: {
       main: "#9874BE",
     },
@@ -29,24 +29,24 @@ function App() {
             <Home />
           </Route>
           {/* CARROS CRUD */}
-          <Route path="/car">
+          <Route path="/car" exact>
             <Car />
           </Route>
-          <Route path="/add-car">
+          <Route path="/add-car" exact>
             <AddCar />
           </Route>
-          <Route path="/update-car/:id">
+          <Route path="/update-car/:id" exact>
             <UpdateCar />
-          </Route>
+          </Route> 
 
           {/* LAVA RAPIDO CRUD */}
-          <Route path="/carwash">
+          <Route path="/carwash" exact>
             <CarWash />
           </Route>
-          <Route path="/add-carwash">
+          <Route path="/add-carwash" exact >
             <AddCarWash />
           </Route>
-          <Route path="/update-carwash/:id">
+          <Route path="/update-carwash/:id" exact > 
             <UpdateCarWash />
           </Route>
         </Switch>
