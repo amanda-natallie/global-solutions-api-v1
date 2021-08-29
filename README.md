@@ -35,3 +35,7 @@ Para ver a API em ação, acesse a pasta frontend e siga o passo a passo a segui
  2. Abra um terminal/cmd na pasta e rode o comando ```yarn && yarn start```
  3. Com isto você será capaz de testar o consumo da API do projeto.
    
+
+
+### Rota de exemplo para listar nomes de Car Wash
+Depois de rodar o projeto e cadastrar dados no insomnia, vá até: http://127.0.0.1:8000/car-wash para visualizar a lista de nomes de car wash
