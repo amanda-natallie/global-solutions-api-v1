@@ -10,12 +10,28 @@ use Mockery\Exception;
 
 class CarwashController extends Controller
 {
-    /**
-     * Busca todos carwash cadastrados.
+     /**
+     * Busca todos carro cadastrados (VIEW).
      *
      * @return JsonResponse
      */
-    public function findAll()
+    public static function find()
+    {
+        $conteudo = DB::table('car_washes')->get('name');
+
+        foreach($conteudo as $cont){
+            $array[] = $cont->name;        
+        }
+
+        return view('welcome')->with(array('array'=>$array));
+    }
+
+    /**
+     * Busca todos carwash cadastrados (API).
+     *
+     * @return JsonResponse
+     */
+    public static function findAll()
     {
         $conteudo = DB::table('car_washes')->get();
 

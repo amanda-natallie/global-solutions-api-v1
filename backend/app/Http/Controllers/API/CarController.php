@@ -16,7 +16,7 @@ class CarController extends Controller
      *
      * @return JsonResponse
      */
-    public function findAll()
+    public static function findAll()
     {
         $conteudo = DB::table('car')->get();
 
